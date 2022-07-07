@@ -1,0 +1,85 @@
+/* =========================== Automatic Sidebar Switch =========================== */
+:root {
+    --sidebar-hover-width: 1px;
+    --sidebar-visible-width: 250px;
+    /* --titlepreface: "[Sidebery] "; */
+}
+
+#main-window #sidebar-box {
+position: relative !important;
+overflow-x: hidden !important;
+margin-right: calc(var(--sidebar-hover-width) * -1) !important;
+left: var(--sidebar-hover-width) !important;
+min-width: var(--sidebar-hover-width) !important;
+max-width: var(--sidebar-hover-width) !important;
+border-right: 1px solid var(--sidebar-border-color);
+z-index: 1;
+}
+
+#main-window #sidebar-box:hover {
+margin-right: calc(var(--sidebar-visible-width) * -1) !important;
+left: var(--sidebar-visible-width) !important;
+min-width: var(--sidebar-visible-width) !important;
+max-width: var(--sidebar-visible-width) !important;
+}
+
+#main-window #sidebar {
+opacity: 0 !important;
+}
+
+#main-window #sidebar-box:hover #sidebar {
+opacity: 1 !important;
+}
+
+/* #sidebar-header is hidden by default, change "none" to "inherit" to restore it. */
+#main-window[sizemode="maximized"] #sidebar-header {
+display: none !important;
+}
+
+/* #sidebar-splitter styles the divider between the sidebar and the rest of the browser. */
+#main-window[sizemode="maximized"] #sidebar-splitter {
+display: none;
+}
+/* =========================== Automatic Tabbar Switch =========================== */
+#main-window #tabbrowser-tabs {
+    transition: opacity .3s .3s !important;
+}
+
+#main-window[sizemode="maximized"] #tabbrowser-tabs {
+    opacity: 0;
+}
+
+#main-window[sizemode="maximized"] .tabbrowser-tab {
+    visibility: collapse !important;
+}
+
+#main-window[sizemode="maximized"] .titlebar-button {
+height: 40px !important;
+}
+
+#main-window[sizemode="maximized"] #nav-bar {
+margin-top: -42px;
+margin-right: 140px;
+box-shadow: none !important;
+}
+
+#main-window[sizemode="maximized"] [uidensity="compact"]:root .titlebar-button {
+height: 32px !important;
+}
+
+#main-window[sizemode="maximized"] [uidensity="compact"]:root #nav-bar {
+margin-top: -32px;
+}
+
+#main-window[sizemode="maximized"] #titlebar-spacer {
+background-color: var(--chrome-secondary-background-color);
+}
+
+#main-window[sizemode="maximized"] #titlebar-buttonbox-container {
+background-color: var(--chrome-secondary-background-color);
+}
+
+#main-window[sizemode="maximized"] .titlebar-color {
+background-color: var(--toolbar-bgcolor);
+}
+  
